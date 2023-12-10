@@ -4,4 +4,4 @@ def no_c(my_string):
     for x in my_string:
         if x.lower() != 'c':
             new_string = new_string + x
-    return new_list
+    return new_string
