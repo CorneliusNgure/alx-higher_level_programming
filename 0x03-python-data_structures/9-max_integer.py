@@ -2,8 +2,11 @@
 def max_integer(my_list=[]):
     if not my_list:
         return None
+
+    max_value = my_list[0]
+
     for x in my_list:
-        if x >= my_list[x]:
-            return x
-        else:
-            return my_list[x]
+        if x > max_value:
+        max_value = x
+
+    return max_value
