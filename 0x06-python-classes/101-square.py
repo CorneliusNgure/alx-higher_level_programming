@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
 """
-    Module defines the Square class of a square with size and position.
+    Module defines Square class of a square with size and position.
 
-    Classes:
-        - Square: Represents a square with size and position.
+Classes:
+- Square: Represents a square with size and position.
+
 """
 
 
@@ -19,8 +20,8 @@ class Square:
     Methods:
     - area(): Returns the area of the square.
     - my_print(): Prints the square with the character #.
+    - __str__(): Returns a string representation of the square.
     """
-
     def __init__(self, size=0, position=(0, 0)):
         """
         Initializes a new instance of the Square class.
@@ -83,12 +84,18 @@ class Square:
 
     def my_print(self):
         """Print the square with the character #."""
+        print(str(self))
+
+    def __str__(self):
+        """Return a string representation of the square."""
+        result = ""
         if self.__size == 0:
-            print()
-            return
+            return result
 
         for _ in range(self.__position[1]):
-            print()
+            result += "\n"
 
         for _ in range(self.__size):
-            print(" " * self.__position[0] + "#" * self.__size)
+            result += " " * self.__position[0] + "#" * self.__size + "\n"
+
+        return result
