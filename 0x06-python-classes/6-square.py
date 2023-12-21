@@ -1,177 +1,119 @@
 #!/usr/bin/python3
 
 """
-This module defines the Square class.
+    module defines the Square class of square with size and position.
 
-A square is a geometric shape with four equal sides and four equal angles.
-
-Classes:
-    Square: Represents a square.
-
-Methods:
-    None
-
-Attributes:
-    None
+    Classes:
+        Square: Represents a square with size and position.
 """
 
 
 class Square:
     """
-    This class represents a square.
+    Square class represents a square.
 
     Attributes:
-        __size (float/int): Private instance attribute of Square's size.
+    - size (int): Size of the square.
+    - position (tuple): Position of the square in the format (x, y).
 
     Methods:
-        __init__(self, size=0): Initializes a new instance of class.
-        size(self): Getter method to retrieve the size attribute.
-        size(self, value): Setter method to set the size attribute.
-        area(self): Computes and returns the area of the square.
-        __eq__(self, other): Checks if two squares are equal in area.
-        __ne__(self, other): Checks if two squares are not equal in area.
-        __gt__(self, other): Checks if area of the current square is > another.
-        __ge__(self, other): Checks if area the square is >= equal to another.
-        __lt__(self, other): Checks if area of square is < than to another.
-        __le__(self, other): Checks if area of square is <= to the of another.
+    - __init__(self, size=0, position=(0, 0)): init instance of Square class.
+    - size(self): Getter method for retrieving the size attribute.
+    - size(self, value): Setter method for setting the size attribute.
+    - position(self): Getter method for retrieving the position attribute.
+    - position(self, value): Setter method for setting the position attribute.
+    - area(self): Computes and returns the area of the square.
+    - my_print(self): Prints the square using '#' with optional position.
     """
 
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """
         Initializes a new instance of the Square class.
 
-        Args:
-            size (float or int, optional):the size of square. Defaults to 0.
-
-        Raises:
-            TypeError: If size is not a number.
-            ValueError: If size is less than 0.
-
-        Returns:
-            None
+        Parameters:
+        - size (int): Size of the square (default is 0).
+        - position (tuple): Position of the square. Default is (0, 0)).
         """
-        self.__size = size
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
         """
-        Getter method to retrieve the size attribute.
+        Getter method for retrieving the size attribute.
 
         Returns:
-            float or int: The size of the square.
+        int: The size of the square.
         """
         return self.__size
 
     @size.setter
     def size(self, value):
         """
-        Setter method to set the size attribute.
+        Setter method for setting the size attribute.
 
-        Args:
-            value (float or int): The new size value.
+        Parameters:
+        value (int): The size value to set.
 
         Raises:
-            TypeError: If value is not a number.
-            ValueError: If value is less than 0.
+        TypeError: If the size is not an integer.
+        ValueError: If the size is less than 0.
+        """
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = value
+
+    @property
+    def position(self):
+        """
+        Getter method for retrieving the position attribute.
 
         Returns:
-            None
+        tuple: The position of the square in the format (x, y).
         """
-        if not isinstance(value, (float, int)):
-            raise TypeError("size must be a number")
+        return self.__position
 
-        if value < 0:
-            raise ValueError("size must be >= 0")
+    @position.setter
+    def position(self, value):
+        """
+        Setter method for setting the position attribute.
 
-        self.__size = value
+        Parameters:
+        value (tuple): The position value to set.
+
+        Raises:
+        TypeError: If the position is not a tuple of two positive integers.
+        """
+        if (
+            not isinstance(value, tuple)
+            or len(value) != 2
+            or not all(isinstance(i, int) for i in value)
+            or not all(i >= 0 for i in value)
+        ):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         """
         Computes and returns the area of the square.
 
         Returns:
-            float or int: The area of the square.
+        int: The area of the square.
         """
         return self.__size ** 2
 
-    def __eq__(self, other):
+    def my_print(self):
         """
-        Checks if two squares are equal in area.
-
-        Args:
-            other (Square): Another square.
-
-        Returns:
-            bool: True if the areas are equal, False otherwise.
+        Prints the square using '#' character with optional position.
         """
-        return (
-                self.area() == other.area()
-                ) if isinstance(other, Square) else False
+        if self.__size == 0:
+            print()
+            return
 
-    def __ne__(self, other):
-        """
-        Checks if two squares are not equal in area.
+        for _ in range(self.__position[1]):
+            print()
 
-        Args:
-            other (Square): Another square.
-
-        Returns:
-            bool: True if the areas are not equal, False otherwise.
-        """
-        return not self.__eq__(other)
-
-    def __gt__(self, other):
-        """
-        Checks if area of the current square is > area of another square.
-
-        Args:
-            other (Square): Another square.
-
-        Returns:
-            bool: True if the area is greater, False otherwise.
-        """
-        return (
-                self.area() > other.area()
-                ) if isinstance(other, Square) else False
-
-    def __ge__(self, other):
-        """
-        Checks if area of current square >= the area of another square.
-
-        Args:
-            other (Square): Another square.
-
-        Returns:
-            bool: True if the area is greater than or equal, False otherwise.
-        """
-        return (
-                self.area() >= other.area()
-                ) if isinstance(other, Square) else False
-
-    def __lt__(self, other):
-        """
-        Checks if the area of the current square is < area of another.
-
-        Args:
-            other (Square): Another square.
-
-        Returns:
-            bool: True if the area is less, False otherwise.
-        """
-        return (
-                self.area() < other.area()
-                ) if isinstance(other, Square) else False
-
-    def __le__(self, other):
-        """
-        Checks if the area of the current square is <= area of another.
-
-        Args:
-            other (Square): Another square.
-
-        Returns:
-            bool: True if the area is less than or equal, False otherwise.
-        """
-        return (
-                self.area() <= other.area()
-                ) if isinstance(other, Square) else False
+        for _ in range(self.__size):
+            print(" " * self.__position[0] + "#" * self.__size)
