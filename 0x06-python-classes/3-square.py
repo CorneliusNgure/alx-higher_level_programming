@@ -20,6 +20,7 @@
         ValueError: Raised if size is less than 0 during initialization.
     """
 
+
 class Square:
     """
     This class represents a square.
