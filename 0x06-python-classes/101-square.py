@@ -96,6 +96,8 @@ class Square:
             result += "\n"
 
         for _ in range(self.__size):
-            result += " " * self.__position[0] + "#" * self.__size + "\n"
+            result += " " * self.__position[0] + "#" * self.__size
+            if _ < self.__size - 1:
+                result += "\n"
 
         return result
