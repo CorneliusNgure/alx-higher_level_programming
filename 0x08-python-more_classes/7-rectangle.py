@@ -13,7 +13,6 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = "#"
 
-
     def __init__(self, width=0, height=0):
         """
         Initializes a new instance of the Rectangle class
@@ -70,7 +69,9 @@ class Rectangle:
         """
         if self.height == 0 or self.width == 0:
             return ""
-        return ('\n'.join("{}".format(self.print_symbol) * self.width for i in range(self.height)))
+        symbol_line = "{}".format(self.print_symbol) * self.width
+        result = '\n'.join(symbol_line for i in range(self.height))
+        return result
 
     def __repr__(self):
         """Returns the string representation of the Rectangle."""
