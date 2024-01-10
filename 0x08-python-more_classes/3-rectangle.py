@@ -53,7 +53,11 @@ class Rectangle:
         return ((self.__width * 2) + (self.__height * 2))
 
     def __str__(self):
-        """mod string object"""
+        """
+        Return the printable representation of the Rectangle.
+
+        Represents the rectangle with the # character.
+        """
         if self.height == 0 or self.width == 0:
             return ""
         return ('\n'.join("#" * self.width for i in range(self.height)))
