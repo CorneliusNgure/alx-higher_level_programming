@@ -1,14 +1,15 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
 Function that returns addition of 2 ints
 """
 
+
 def add_integer(a, b=98):
     """
-    Returns: 
+    Returns:
         int: Addition of two ints
 
-    Args: 
+    Args:
         a (int or float): First argument.
         b (int or float): Second argument.
 
@@ -21,5 +22,3 @@ def add_integer(a, b=98):
     if not (isinstance(b, int) or isinstance(b, float)):
         raise TypeError("b must be an integer")
     return (int(a) + int(b))
-    
-
