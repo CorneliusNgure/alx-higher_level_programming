@@ -1,0 +1,34 @@
+===================================
+ How to use 5-text_indentation.py
+==================================
+
+The module defines the function, text_indentation(text):
+
+Usage:
+	Prints text with two new lines after chars '.', '?', and ':'.
+
+	>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+        >>> text_indentation("This is a simple text. Some sentences. Let's see if it works.")
+        This is a simple text.
+        Some sentences.
+        Let's see if it works.
+
+        >>> text_indentation("NoNewlinesHere")
+        NoNewlinesHere
+
+        >>> text_indentation(".Space before period.")
+        Space before period.
+
+        >>> text_indentation(" \n Multiple newlines.\n\n\n")
+        Multiple newlines.
+
+        >>> text_indentation("Question mark? Followed by space.")
+        Question mark?
+        Followed by space.
+
+        >>> text_indentation(":Colon with spaces before and after: ")
+        Colon with spaces before and after:
+
+        >>> text_indentation(": Colon with no spaces :")
+        Colon with no spaces:
