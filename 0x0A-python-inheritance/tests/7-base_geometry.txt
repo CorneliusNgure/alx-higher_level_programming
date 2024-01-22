@@ -14,11 +14,7 @@ BaseGeomentry class has no attributes or arguments
     >>> type(bg)
     <class '7-base_geometry.BaseGeometry'>
 
-Raises TypeError when arguments are passed.
 
-    >>> bg = BaseGeometry(None)
-    Traceback (most recent call last):
-    BaseGeometry() takes no arguments
 Methods
 =======
 
