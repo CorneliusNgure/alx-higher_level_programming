@@ -1,0 +1,75 @@
+=============================
+How to Use 7-base_geometry.py
+=============================
+
+This modules defines a base geometry class BaseGeometry.
+
+Instantiation
+=============
+
+BaseGeomentry class has no attributes or arguments
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> type(bg)
+    <class '7-base_geometry.BaseGeometry'>
+
+Raises TypeError when arguments are passed.
+
+    >>> bg = BaseGeometry(None)
+    Traceback (most recent call last):
+    TypeError: object() takes no parameters
+
+Methods
+=======
+
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+
+   >>> bg.integer_validator("valid number", 1)
+
+Value is an integer, otherwise TypeError is raised.
+
+    >>> bg.integer_validator("invalid_number", "number")
+    Traceback (most recent call last):
+    TypeError: invalid_number must be an integer
+
+    >>> bg.integer_validator("invalid_argument", True)
+    Traceback (most recent call last):
+    TypeError: invalid_argument must be an integer
+
+    >>> bg.integer_validator("invalid_tuple", (1,))
+    Traceback (most recent call last):
+    TypeError: invalid_tuple must be an integer
+
+    >>> bg.integer_validator("invalid_arg", [3])
+    Traceback (most recent call last):
+    TypeError: invalid_arg must be an integer
+
+    >>> bg.integer_validator("added invalid testing", {3, 4})
+    Traceback (most recent call last):
+    TypeError: added invalid testing must be an integer
+
+    >>> bg.integer_validator("other possible invalids", None)
+    Traceback (most recent call last):
+    TypeError: other possible invalids must be an integer
+
+If value is an integer but <= 0, a ValueError is raised.
+
+    >>> bg.integer_validator("invalid_int", -1)
+    Traceback (most recent call last):
+    ValueError: invalid_int must be greater than 0
+
+    >>> bg.integer_validator("invalid_int", 0)
+    Traceback (most recent call last):
+    ValueError: invalid_int must be greater than 0
+
+If arguments aren't provide a TypeError is raised.
+
+The method assumes the paramter "name" will be a string but "name" if any type will be printed.
+
+    >>> bg.integer_validator({"a": 1}, (1, 2))
+    Traceback (most recent call last):
+    TypeError: {'a': 1} must be an integer
