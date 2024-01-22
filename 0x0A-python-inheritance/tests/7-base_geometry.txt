@@ -23,7 +23,13 @@ Methods
     Exception: area() is not implemented
 
 
-   >>> bg.integer_validator("valid number", 1)
+   >>> bg.integer_validator()
+   Traceback (most recent call last):
+   TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+       
+   >>> bg.integer_validator("age")
+   Traceback (most recent call last):
+   TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
 Value is an integer, otherwise TypeError is raised.
 
