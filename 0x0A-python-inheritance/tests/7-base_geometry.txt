@@ -18,8 +18,7 @@ Raises TypeError when arguments are passed.
 
     >>> bg = BaseGeometry(None)
     Traceback (most recent call last):
-    TypeError: object() takes no parameters
-
+    BaseGeometry() takes no arguments
 Methods
 =======
 
