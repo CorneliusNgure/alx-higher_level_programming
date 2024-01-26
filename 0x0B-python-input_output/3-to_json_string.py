@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a functin that returns JSON representation of an ob    ject string"""
+"""Defines function to return JSON representation of an ob    ject string"""
 
 import json
 
