@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Fetches https://alx-intranet.hbtn.io/status using requests package and displays the body of the response.
+"""Fetches https://alx-intranet.hbtn.io/status using requests package
++ and displays the body of the response.
 """
 import requests
 
@@ -10,6 +11,5 @@ if __name__ == "__main__":
     content = response.text
 
     print("Body response:")
-    print(f"    - type: {type(content)}")
-    print(f"    - content: {content}")
-
+    print("\t- type: {}".format(type(r.text)))
+    print("\t- content: {}".format(r.text))
