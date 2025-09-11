@@ -1,4 +1,4 @@
--- Lists all shows in the hbtn_0d_tvshows database that have at least one genere linked
+-- Lists all shows in the hbtn_0d_tvshows database that have no genere linked
 -- Sorted in ascending order by tv_shows.title and tv_show_genres.genre_id.
 
 SELECT tv_shows.title, tv_show_genres.genre_id
